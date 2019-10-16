@@ -1,7 +1,3 @@
-# Author - Achintha Wijesinghe
-# Version - 1.3
-# last update - 5/25/2019
-# Next update - Correct red coordinates if red is spotted
 import cv2
 import numpy as np
 import imutils
