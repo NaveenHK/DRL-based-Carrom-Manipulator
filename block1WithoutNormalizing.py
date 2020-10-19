@@ -128,9 +128,7 @@ for frame in range(frameNo,frameNo+1):#(frameNo,frameNo+1):#(6,23):
     black_y = [] # Black pieces x coordinates
     coordinateArray = np.zeros((19,2),dtype = int)
     coordinatePockets = np.zeros((4,2),dtype = int)
-    path = "opencv_frame_"+str(frame)+".png"
-    #path = 'D:\\EducationFinalProject\\Vision\\images\\opencv_frame_'+str(frame)+'.png'
-    #path = 'D:\\EducationFinalProject\\Vision\\images\\newfFrame'+str(frame)+'.png'
+    path = "opencv_frame_"+str(frame)+".png
     img = cv2.imread(path)#load the image check 12,17
 ##    print(img.shape)
     #img = img[60:1020,450:1470,:] #*******************************************************
@@ -265,16 +263,16 @@ for frame in range(frameNo,frameNo+1):#(frameNo,frameNo+1):#(6,23):
     locWhite = np.where(resultWhite >= 0.27)#0.27
     (Xw,Yw) = locWhite
     #(Xwc,Ywc) = locWhite
-    (Xwc,Ywc) = non_max_suppression_fast(Xw,Yw, 0.5,w_w,h_w)
+
 
     # Visuallization of the data
 ##    print("lenWhite: ",len(Xw))
     white_no = 0
     for pt in range(len(Xwc)):
-        x_i = Ywc[pt]+int(w_w/2)
-        y_i = Xwc[pt]+int(h_w/2)
+        x_i = Ywc[pt]
+        y_i = Xwc[pt]
         
-        if ((img[y_i,x_i,0] >= 150 and img[y_i,x_i,1] >= 185) and img[y_i,x_i,2] >= 150):
+        if ((img[y_i,x_i,0] >= 155 and img[y_i,x_i,1] >= 180)):
 ##            print("white centers: ",pt+1," : ",img[y_i,x_i,:])
             s = np.sum(img[Ywc[pt]:Ywc[pt]+w_w,Xwc[pt]:Xwc[pt]+h_w,:])
             #cv2.rectangle(img,(Ywc[pt],Xwc[pt]),(Ywc[pt]+w_w,Xwc[pt]+h_w),(0,0,255),1)
@@ -410,13 +408,13 @@ for frame in range(frameNo,frameNo+1):#(frameNo,frameNo+1):#(6,23):
     #resultBlack = cv2.matchTemplate(edgeImg,tempSmoothRB,cv2.TM_CCOEFF_NORMED)
     locBlack = np.where(resultBlack >= 0.528343)#0.56,24  0.13784352)
     (Xb,Yb) = locBlack
-    (Xbc,Ybc) = non_max_suppression_fast(Xb,Yb, 0.2,w_b,h_b)
+    
     
     black_no = 0
 ##    print('-----------------------------------------Black----------------------------------------------------------------------')
     for pt in range(len(Xbc)):
-        x_i = Ybc[pt]+int(w_b/2)-1
-        y_i = Xbc[pt]+int(h_b/2)-1
+        x_i = Ybc[pt]
+        y_i = Xbc[pt]
                             
         black_x.append(x_i)
         black_y.append(y_i)
